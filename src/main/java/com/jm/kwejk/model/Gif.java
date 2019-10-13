@@ -15,6 +15,8 @@ public class Gif {
     private String username;
     @Getter
     private boolean favorite;
+    @Getter
+    private int categoryId;
 
 
 }
