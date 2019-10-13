@@ -3,6 +3,7 @@ package com.jm.kwejk.repository;
 import com.jm.kwejk.model.Gif;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 @Repository
@@ -19,6 +20,26 @@ public class GifRepository {
 
     public static List<Gif> getAllGifs() {
         return ALL_GIFS;
+    }
+
+    public List<Gif> getFavoritesGifs() {
+        List<Gif> favorites = new ArrayList<>();
+
+        for (int i = 0; i < ALL_GIFS.size(); i++) {
+            if (ALL_GIFS.get(i).isFavorite()) {
+                favorites.add(ALL_GIFS.get(i));
+            }
+        } return favorites;
+    }
+
+    public Gif getGifByName(String name) {
+
+        for (Gif gif : ALL_GIFS) {
+            if (gif.getName().equals(name)){
+                return gif;
+            }
+        }
+        return null;
     }
 
 
